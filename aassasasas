@@ -2,23 +2,23 @@ if(window.snake) {
   window.snake.scheme = function(settings = {}) {
     
     if(settings.score_bar === undefined)
-      settings.score_bar = settings.scoreBar || '#4A752C';
+      settings.score_bar = settings.scoreBar || 'undefined';
     if(settings.borders === undefined)
-      settings.borders = '#578A34';
+      settings.borders = 'undefined';
     if(settings.walls === undefined)
       settings.walls = settings.borders;
     if(settings.shadows === undefined)
-      settings.shadows = '#94BD46';
+      settings.shadows = 'undefined';
     if(settings.light_squares === undefined)
-      settings.light_squares = settings.lightSquares || '#AAD751';
+      settings.light_squares = settings.lightSquares || 'undefined';
     if(settings.dark_squares === undefined)
-      settings.dark_squares = settings.darkSquares || '#A2D149';
+      settings.dark_squares = settings.darkSquares || 'undefined';
     if(settings.sky === undefined)
-      settings.sky = '#4DC1F9';
+      settings.sky = 'undefined';
     if(settings.separators === undefined)
-      settings.separators = '#87CEFA';
+      settings.separators = 'undefined';
     if(settings.buttons === undefined)
-      settings.buttons = '#1155CC';
+      settings.buttons = 'undefined';
     if(settings.light_goal === undefined) {
       let f = settings.light_squares;
       f = f.replace('#', '');
