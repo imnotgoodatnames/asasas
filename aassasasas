@@ -418,7 +418,7 @@ if(window.snake) {
             if(settings.noel) {
               const noel_sources = [
                 "https://postimg.cc/VSc3N3v6",
-                "https://i.postimg.cc/D09KQz1S/Candy-2.png",
+                "https://i.postimg.cc/mgSfVrqz/Boyfriend.gif",
                 "https://i.postimg.cc/PJbJrM2q/Cap.png",
                 "https://i.postimg.cc/zG1rVVJM/Cookies.png",
                 "https://i.postimg.cc/ry0s4RkF/Santa.png",
