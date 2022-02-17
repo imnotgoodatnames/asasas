@@ -1,4 +1,86 @@
-;
+if(window.snake) {
+  window.snake.scheme = function(settings = {}) {
+    
+    if(settings.score_bar === undefined)
+      settings.score_bar = settings.scoreBar || '#4A752C';
+    if(settings.borders === undefined)
+      settings.borders = '#578A34';
+    if(settings.walls === undefined)
+      settings.walls = settings.borders;
+    if(settings.shadows === undefined)
+      settings.shadows = '#94BD46';
+    if(settings.light_squares === undefined)
+      settings.light_squares = settings.lightSquares || '#AAD751';
+    if(settings.dark_squares === undefined)
+      settings.dark_squares = settings.darkSquares || '#A2D149';
+    if(settings.sky === undefined)
+      settings.sky = '#4DC1F9';
+    if(settings.separators === undefined)
+      settings.separators = '#87CEFA';
+    if(settings.buttons === undefined)
+      settings.buttons = '#1155CC';
+    if(settings.light_goal === undefined) {
+      let f = settings.light_squares;
+      f = f.replace('#', '');
+      let { h, s, v, } = rgb_to_hsv({
+        r: parseInt(f.substring(0, 2), 16),
+        g: parseInt(f.substring(2, 4), 16),
+        b: parseInt(f.substring(4, 6), 16),
+      });
+      s += 0.03;
+      v += 0.07;
+      s = s > 1 ? 1 : s;
+      v = v > 1 ? 1 : v;
+
+      let { r, g, b } = hsv_to_rgb({ h: h, s: s, v: v });
+      // settings.light_goal = '#' + (~~r).toString(16) + (~~g).toString(16) + (~~b).toString(16);
+      settings.light_goal = rgb_to_hex({ r: Math.round(r), g: Math.round(g), b: Math.round(b) });
+    }
+    if(settings.dark_goal === undefined) {
+      let f = settings.dark_squares;
+      f = f.replace('#', '');
+      let { h, s, v, } = rgb_to_hsv({
+        r: parseInt(f.substring(0, 2), 16), 
+        g: parseInt(f.substring(2, 4), 16),
+        b: parseInt(f.substring(4, 6), 16),
+      });
+      s += 0.03;
+      v -= 0.08;
+      s = s > 1 ? 1 : s;
+      v = v > 1 ? 1 : v < 0 ? 0 : v;
+
+      let { r, g, b } = hsv_to_rgb({ h: h, s: s, v: v });
+      // settings.dark_goal = '#' + (~~r).toString(16) + (~~g).toString(16) + (~~b).toString(16);
+      settings.dark_goal = rgb_to_hex({ r: Math.round(r), g: Math.round(g), b: Math.round(b) });
+    }
+    let f = settings.dark_goal;
+    f = f.replace('#', '');
+    let { h, s, v, } = rgb_to_hsv({
+      r: parseInt(f.substring(0, 2), 16), 
+      g: parseInt(f.substring(2, 4), 16),
+      b: parseInt(f.substring(4, 6), 16),
+    });
+    v -= .11;
+    v = v < 0 ? 0 : v;
+    let { r, g, b } = hsv_to_rgb({ h: h, s: s, v: v });
+    // settings.darker_goal = '#' + (~~r).toString(16) + (~~g).toString(16) + (~~b).toString(16);
+    settings.darker_goal = rgb_to_hex({ r: Math.round(r), g: Math.round(g), b: Math.round(b) });
+
+    // console.log(settings.dark_goal, settings.light_goal, settings.darker_goal)
+
+
+    
+    document.body.bgColor = settings.background || settings.score_bar;
+    document.getElementsByClassName('sEOCsb')[0].style.backgroundColor = settings.score_bar;
+    let bacon = document.getElementsByClassName('T7SB3d');
+    for(let b of bacon)
+      b.style.background = settings.sky;
+    let pork = document.getElementsByClassName('e1XC2b');
+    for(let p of pork)
+      p.style.borderBottomColor = settings.separators;
+    let ham = document.getElementsByClassName('FL0z2d');
+    for(let h of ham)
+      h.style.background = settings.buttons;
 
 
 
