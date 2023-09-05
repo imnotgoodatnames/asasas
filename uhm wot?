@@ -1,0 +1,200 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+                
+local Window = Rayfield:CreateWindow({
+   Name = "WOT gui or something",
+   LoadingTitle = "Are you mrbeast",
+   LoadingSubtitle = "by .pilgor.",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "WOT mrbeast?!"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Grinding")
+
+local Button = Tab:CreateButton({
+   Name = "WOT Grind GUI",
+   Callback = function()
+   loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/World%20of%20Trollge')))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Anti AFK",
+   Callback = function()
+  
+   local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Fly GUI",
+   Callback = function()
+   loadstring(game:HttpGet('https://pastebin.com/raw/YSL3xKYU'))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Mobile Keyboard GUI",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Auto Craft Without TP",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   AutoCraft = Value
+if AutoCraft == true then
+OGL = 
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+while AutoCraft do
+for i, v in ipairs(workspace["The J"].Forging:GetDescendants()) do
+                if v.ClassName == "Part" and v:FindFirstChild("ProximityPrompt") then
+fireproximityprompt(v.ProximityPrompt,0)
+                end
+            end
+task.wait()
+end
+end
+end
+})
+
+local Button = Tab:CreateButton({
+   Name = "TP to Trader",
+   Callback = function()
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4923.36328125, 168.06739807128906, 36.956085205078125)
+   end,
+})
+
+local Section = Tab:CreateSection("Safe Place Griding")
+
+local Button = Tab:CreateButton({
+   Name = "Create Safe Place",
+   Callback = function()
+   
+   local part = Instance.new("Part")
+part.Anchored = true
+part.CanCollide = true
+part.Size = Vector3.new(9999, 1, 9999)
+part.CFrame = CFrame.new(141.61473083496094, -289.1189270019531, 340.0505065917969)
+part.Transparency = 0
+part.Parent = game:GetService("Workspace")
+
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "TP to safe place",
+   Callback = function()
+
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(141.61473083496094, -279.1189270019531, 340.0505065917969)
+   end,
+})
+
+
+
+local Tab = Window:CreateTab("PVP", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("(best if you have knight and use charge or trolldier with pickaxe)")
+
+local Button = Tab:CreateButton({
+   Name = "Hitbox Expander (T to toggle)",
+   Callback = function()
+   -- Variables
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+-- Settings
+
+bind = "" 
+bind2 = "t"
+
+-- Script
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+player.Character.HumanoidRootPart.CFrame = CFrame.new(1254.09656, 137.906067, -172.128204)
+end
+end)
+
+mouse.KeyDown:connect(function(key2)
+if key2 == bind2 then
+_G.HeadSize = 50
+_G.Disabled = true
+
+
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end
+end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Fake Lag (Use with Safe Place PVP or a secret place to run)",
+   Callback = function()
+   loadstring(game:HttpGet("https://paste.gg/p/anonymous/d3492bd620bd4c46b54680ac80b0fa0d/files/161ddd9c992c4ceba3c298458d45188a/raw", true))()
+   end,
+})
+
+local Section = Tab:CreateSection("Safe Place PVP")
+
+local Button = Tab:CreateButton({
+   Name = "Create Safe Place",
+   Callback = function()
+   
+   local part = Instance.new("Part")
+part.Anchored = true
+part.CanCollide = true
+part.Size = Vector3.new(5, 1, 5)
+part.CFrame = CFrame.new(-153.09657287597656, 80224.0859375, -673.0444946289062)
+part.Transparency = 0
+part.Parent = game:GetService("Workspace")
+
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "TP to safe place",
+   Callback = function()
+
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-153.09657287597656, 80234.0859375, -673.0444946289062)
+   end,
+})
